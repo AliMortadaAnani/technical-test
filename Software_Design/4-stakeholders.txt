@@ -1,0 +1,6 @@
+4- Stakeholders Requirements : -----> who are the stakeholders 
+	    & how they are related/affected by the solution
+		
+the stakeholders in this solution are:
+users of the system (AliMA employees)
+the development team (me)

@@ -1,0 +1,31 @@
+6- Functional Requirements : specify the things the application should do
+		---> external and internal services
+		---> system does ... / user does ...
+		
+		   
+		   Non-Functional Requirements : specify performance, reliability, security 
+		  (benchmarks)
+		  
+	
+Functional:
+	
+user opens the app in a browser (types the website domain in Chrome, for example)
+
+system shows the login page and login form
+user fills the login form and proceeds on success (mock auth in our case)
+
+system shows the dashboard page with a table of job applications registered in the system
+system shows an update status option near each record
+system shows a create application button at the top of the page 
+
+user interacts with the update status option if eligible
+system saves the new status of the record
+
+user clicks the create job application button
+system takes him to another page with a job application form
+user fills the form and saves
+system saves the new job application
+
+Non Functional : 
+system needs to be reponsive,with no lag 
+security is not our focus in this test

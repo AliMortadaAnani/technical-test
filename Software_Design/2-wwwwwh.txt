@@ -1,0 +1,30 @@
+2- WWWWWH 
+		--> who, what, when, where, why, how
+
+		i) who will use the solution (client : users(admins),customers,...)
+		ii) what will the solution do (features)
+		iii) when the solution is needed (mvp features vs later features ~ phases and deadlines)
+		iv) where will the solution be used (platforms: desktop,mobile,...)
+		v) why the solution is needed : what will it solves primarily (from problem definition)
+		vi) how the solution is made (if client knows what he wants specifically
+		or development team decides the appropriate stack & architecture)
+		
+
+who: the solution will be used by AliMA employees, especially the HR/recruiting team
+
+what: the solution will allow users to log in (mock login in this test) and manage all the job applications
+
+when: the solution is needed before Friday night (2 October 2026), no later features for this phase of the test
+
+where: the solution is needed as a web application that can be used from any modern device with a browser
+
+why: the solution is needed to organise the recruiting team's job in the company (1- problem definition explains why clearly)
+
+how: the solution will consist of a frontend in React with its ecosystem 
+(TypeScript, Tailwind CSS, react-hook-form, TanStack Query, Zod, React Router, react-hot-toast, Vite, oxlint)
+
+and a backend in .NET 8 Web API (I didn't choose Node because I am faster at building in .NET for this short-period test, although
+I believe my backend knowledge can be applied in any language or framework with very short time to shift)
+and some libraries like FluentValidation, EF Core, Swagger UI...
+
+and the database will be built with SQL Server (Express Edition)

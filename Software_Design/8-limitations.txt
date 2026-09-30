@@ -1,0 +1,11 @@
+8- Limitations (what problems to expect ~ deal with ~ accept ~ improve for later version)
+
+limitations need more deep study,
+but for example:
+in this version of the system,
+authentication is a limitation since anyone can log in using hardcoded values (u:admin, p:1234)
+
+also, the user needs to remember and keep creating new job application records manually,
+so this is not fully automated
+
+the solution mainly adopts English Language right now

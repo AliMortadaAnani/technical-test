@@ -1,0 +1,51 @@
+//this software design (or software engineering template) is based on many advices from many resources (university-google-ai models-youtube videos-...)
+		
+		1- Problem Definition : what is the problem we are trying to solve?
+		
+		2- WWWWWH 
+		--> who, what, when, where, why, how
+
+		i) who will use the solution (client : users(admins),customers,...)
+		ii) what will the solution do (features)
+		iii) when the solution is needed (mvp features vs later features ~ phases and deadlines)
+		iv) where will the solution be used (platforms: desktop,mobile,...)
+		v) why the solution is needed : what will it solves primarily (from problem definition)
+		vi) how the solution is made (if client knows what he wants specifically
+		or development team decides the appropriate stack & architecture)
+		
+		3- Business Requirements : what client hopes to achieve (High-level project's goals)
+		---> here we dive more into what the client expect as overall from this solution	
+		
+		4- Stakeholders Requirements : -----> who are the stakeholders 
+	    & what how they are related/affected by the solution
+		
+	
+		5- Brainstorming Ideas
+		generate many feature ideas as we can without focusing on its scope,realism...
+
+		6- Functional Requirements : specify the things the application should do
+		---> external and internal services
+		---> system does ... / user does ...
+		
+		   
+		   Non Functional Requirements : specify performance,reliability,security 
+		  (benchmarks)
+		  
+		
+		7-  Adapt the MOSCOW methodologie:
+			MUST - SHOULD - COULD - WONT
+			M:for MVP (least functional state) 
+			S:to be implemented for full product (complete product)  
+			C:to be re-checked for potential additional features (enhanced product)
+			W:to be likely omitted ~ perfectionist features ( out of scope at the time)
+
+		8- Limitations (what problems to expect ~ deal with ~ accept ~ improve for later version)
+		
+		9- High level and Low level design : specify the user/system interactions
+		===> here we set the ERD, database schema, dtos, endpoints of the api,...(very open to change)
+		
+		10- Development phase && Continious review of the SE plan 
+		
+		Later come Testing, Deployment, Maintenance 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

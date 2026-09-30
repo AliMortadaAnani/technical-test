@@ -1,0 +1,25 @@
+7-  Adapt the MoSCoW methodology:
+			MUST - SHOULD - COULD - WON'T
+			M: for MVP (least functional state) 
+			S: to be implemented for full product (complete product)  
+			C: to be re-checked for potential additional features (enhanced product)
+			W: to be likely omitted ~ perfectionist features (out of scope at the time)
+			
+
+M: (for this test)
+login (mock)
+logout (mock)
+getJobApplicationsList (api)
+createJobApplication (api)
+updateJobApplicationById (api)
+
+S: 
+real login/logout authentication with JWT or Cookies
+getJobApplicationById
+upload files (CVs) and store them in the DB
+deleteJobApplicationById
+light/dark theme
+make job application list PAGED
+
+C:...
+W:...

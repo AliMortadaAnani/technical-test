@@ -1,0 +1,14 @@
+1- Problem Definition : what is the problem we are trying to solve?
+
+AliMA Corporation (a hypothetical company for the technical test)
+is a startup that sells some products and services in some business domain...
+
+Good news! AliMA is expanding!
+Unfortunately, the AliMA team is facing a problem managing candidates' resumes and information gathered from the job applications
+they are posting.
+For example, the recruiting team has many applicants' CVs from WhatsApp chats, LinkedIn DMs, their email inbox...
+And since AliMA is a professional company, they want to manage this task properly, guaranteeing to review each application
+and totally avoid ghosting candidates they had contacted (shortlisted candidates)
+
+For that reason, the AliMA CEO reached me (ALi Mortada Anani - fullstack developer) to create a solution for this problem
+which is basically an internal dashboard web application that manages candidates applying for jobs at AliMA Corporation.

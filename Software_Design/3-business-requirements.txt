@@ -1,0 +1,8 @@
+3- Business Requirements : what client hopes to achieve (High-level project's goals)
+		---> here we dive more into what the client expects overall from this solution
+		
+the client (AliMA Corporation) expects the solution to allow users to
+log in to the system / log out (mock)
+create a new job application record with the needed fields to reflect its details and status
+update the job application status as the interview process advances
+see a list of all the job applications in the system (stored in the database)

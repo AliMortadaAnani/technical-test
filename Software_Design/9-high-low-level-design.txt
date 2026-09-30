@@ -1,0 +1,87 @@
+9- High level and Low level design : specify the user/system interactions
+		===> here we set the ERD, database schema, dtos, endpoints of the api,...(very open to change)
+		
+the user open the web application,
+at login, he is required to enter username and password (hardcoded since its a mock	auth)
+dto for the frontend app (username,password)
+system respond by allowing user to naivgate to the dashboard page (no real authResponse from api here since its mock also)
+same applies for logout
+
+now for real api (frontend backend communication)
+user will have mainly 3 interactions with the api 
+for creating a jobApplication record, user enters:
+applicant name,applicant email,job title (system generates the id(auto incremental)
+										,and dateOfCreation as now,and applicationStatus as new)
+
+for updating , user select the record from the lists of applications and update status
+from new to inProgess or from inProgess to Done (api requires the id only for the update,since status will be auto derived)
+
+
+the dashboard page also shows a table of the lists of registered jobApplications:
+the table show these record info:
+id,name,email,job title,date of creation,status
+
+Note:
+in our context:
+new is any applicant record that has been shortlisted by AliMA Corporation (no contact from the company yet),
+the user enters manually each application he tend to follow up with
+
+inProgess is any applicant record that has been contacted by the HR team so the company must follow the process with
+this candidate
+
+Done is any applicant record that has ended this process whether he was hired,or been rejected
+
+so in other words,
+new jobApplications are the total candidates that applied and shortlisted by HR side (no contact yet)
+inProgress jobApplications are the total shortlisted candidates that have been contacted by HR
+Done jobApplications are the total candidates that have been hired or rejected after being contacted by HR
+
+
+
+"JobApplication":
+    
+"Id": "int, PK, auto increment",
+"Name": "string",
+"Email": "string",
+"JobTitle": "string",
+"Status": "int",
+"CreatedAt": "datetime"
+
+request dtos for the api:
+createDTO
+{
+"Name": "string",
+"Email": "string",
+"JobTitle": "string",
+}
+
+updateDTO
+{
+"id":int
+}
+
+response dtos for the api:
+
+jobApplicationListDTO : 
+will be a list of this record
+{
+"Id": "int,
+"Name": "string",
+"Email": "string",
+"JobTitle": "string",
+"Status": "int",
+"CreatedAt": "datetime"
+}
+
+endpoints : 
+
+GET /api/dashboard
+Response: JobApplicationList
+ 	
+POST /api/dashboard
+Body: CreateJobApplicationDto
+Response: JobApplicationRecord	
+
+PUT /api/dashboard
+Body: UpdateJobApplicationDto
+Response: JobApplicationRecord
