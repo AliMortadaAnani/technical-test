@@ -1,0 +1,41 @@
+﻿using Dashboard.API.Domain.ResultErrorDomain;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Dashboard.API.Application.Exceptions
+{
+    public class GlobalExceptionHandler : IExceptionHandler
+    {
+        private readonly ILogger<GlobalExceptionHandler> _logger;
+
+        public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+        {
+            _logger = logger;
+        }
+
+        public async ValueTask<bool> TryHandleAsync(
+            HttpContext httpContext,
+            Exception exception,
+            CancellationToken cancellationToken = default
+           )
+
+        {
+            _logger.LogError(exception, "GlobalExceptionHandler: Exception occurred - Message: {Message}, Type: {ExceptionType}", exception.Message, exception.GetType().Name);
+
+            var problemDetails = new ProblemDetails
+            {
+                Status = StatusCodes.Status500InternalServerError,
+                Title = nameof(ProblemDetails500ErrorTypes.Server_Error),
+                Detail = "An unexpected error occurred. Please contact support.",
+                Type = "500InternalServerError"
+            };
+
+            httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
+
+            _logger.LogError("GlobalExceptionHandler: Returning 500 error response to client at path {Path}", httpContext.Request.Path);
+            await httpContext.Response.WriteAsJsonAsync(problemDetails);
+
+            return true;
+        }
+    }
+}
