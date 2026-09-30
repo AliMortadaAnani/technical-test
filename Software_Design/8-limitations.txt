@@ -8,4 +8,6 @@ authentication is a limitation since anyone can log in using hardcoded values (u
 also, the user needs to remember and keep creating new job application records manually,
 so this is not fully automated
 
-the solution mainly adopts English Language right now
+the solution mainly adopts the English language right now
+
+this also
