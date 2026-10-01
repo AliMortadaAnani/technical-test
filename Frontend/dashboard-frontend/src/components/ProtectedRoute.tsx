@@ -11,15 +11,19 @@ export default function ProtectedRoute() {
 
   return (
     <>
-      <Navbar
-        link1Label="Dashboard"
-        link1To="/dashboard"
-        link2Label="Create Job Application"
-        link2To="/new-job-application"
-        withLogoutButton={true}
-      />
-      <Outlet />
-      <Footer />
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <Navbar
+          link1Label="Dashboard"
+          link1To="/dashboard"
+          link2Label="Create Job Application"
+          link2To="/new-job-application"
+          withLogoutButton={true}
+        />
+        <main className="flex-1 max-w-7xl w-full mx-auto p-6">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
