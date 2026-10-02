@@ -1,0 +1,235 @@
+1- Problem Definition : what is the problem we are trying to solve?
+
+AliMA Corporation (a hypothetical company for the technical test)
+is a startup that sells some products and services in some business domain...
+
+Good news! AliMA is expanding!
+Unfortunately, the AliMA team is facing a problem managing candidates' resumes and information gathered from the job applications
+they are posting.
+For example, the recruiting team has many applicants' CVs from WhatsApp chats, LinkedIn DMs, their email inbox...
+And since AliMA is a professional company, they want to manage this task properly, guaranteeing to review each application
+and totally avoid ghosting candidates they had contacted (shortlisted candidates)
+
+For that reason, the AliMA CEO reached me (ALi Mortada Anani - fullstack developer) to create a solution for this problem
+which is basically an internal dashboard web application that manages candidates applying for jobs at AliMA Corporation.
+
+
+2- WWWWWH 
+		--> who, what, when, where, why, how
+
+		i) who will use the solution (client : users(admins),customers,...)
+		ii) what will the solution do (features)
+		iii) when the solution is needed (mvp features vs later features ~ phases and deadlines)
+		iv) where will the solution be used (platforms: desktop,mobile,...)
+		v) why the solution is needed : what will it solves primarily (from problem definition)
+		vi) how the solution is made (if client knows what he wants specifically
+		or development team decides the appropriate stack & architecture)
+		
+
+who: the solution will be used by AliMA employees, especially the HR/recruiting team
+
+what: the solution will allow users to log in (mock login in this test) and manage all the job applications
+
+when: the solution is needed before Friday night (2 October 2026), no later features for this phase of the test
+
+where: the solution is needed as a web application that can be used from any modern device with a browser
+
+why: the solution is needed to organise the recruiting team's job in the company (1- problem definition explains why clearly)
+
+how: the solution will consist of a frontend in React with its ecosystem 
+(TypeScript, Tailwind CSS, react-hook-form, TanStack Query, Zod, React Router, react-hot-toast, Vite, oxlint)
+
+and a backend in .NET 8 Web API (I didn't choose Node because I am faster at building in .NET for this short-period test, although
+I believe my backend knowledge can be applied in any language or framework with very short time to shift)
+and some libraries like FluentValidation, EF Core, Swagger UI...
+
+and the database will be built with SQL Server (Express Edition)
+
+
+3- Business Requirements : what client hopes to achieve (High-level project's goals)
+		---> here we dive more into what the client expects overall from this solution
+		
+the client (AliMA Corporation) expects the solution to allow users to
+log in to the system / log out (mock)
+create a new job application record with the needed fields to reflect its details and status
+update the job application status as the interview process advances
+see a list of all the job applications in the system (stored in the database)
+
+
+4- Stakeholders Requirements : -----> who are the stakeholders 
+	    & how they are related/affected by the solution
+		
+the stakeholders in this solution are:
+users of the system (AliMA employees)
+the development team (me)
+
+
+5- Brainstorming Ideas
+		generate as many feature ideas as we can without focusing on scope, realism...
+		
+since this is a technical test,
+I won't focus on brainstorming ideas; rather, we will focus on defined steps since the scope and time period are limited
+
+
+6- Functional Requirements : specify the things the application should do
+		---> external and internal services
+		---> system does ... / user does ...
+		
+		   
+		   Non-Functional Requirements : specify performance, reliability, security 
+		  (benchmarks)
+		  
+	
+Functional:
+	
+user opens the app in a browser (types the website domain in Chrome, for example)
+
+system shows the login page and login form
+user fills the login form and proceeds on success (mock auth in our case)
+
+system shows the dashboard page with a table of job applications registered in the system
+system shows an update status option near each record
+system shows a create application button at the top of the page 
+
+user interacts with the update status option if eligible
+system saves the new status of the record
+
+user clicks the create job application button
+system takes him to another page with a job application form
+user fills the form and saves
+system saves the new job application
+
+Non Functional : 
+system needs to be reponsive,with no lag 
+security is not our focus in this test
+
+
+7-  Adapt the MoSCoW methodology:
+			MUST - SHOULD - COULD - WON'T
+			M: for MVP (least functional state) 
+			S: to be implemented for full product (complete product)  
+			C: to be re-checked for potential additional features (enhanced product) 
+			W: to be likely omitted ~ perfectionist features (out of scope at the time)
+			
+
+M: (for this test)
+login (mock)
+logout (mock)
+getJobApplicationsList (api)
+createJobApplication (api)
+updateJobApplicationById (api)
+
+S: 
+real login/logout authentication with JWT or Cookies
+getJobApplicationById
+upload files (CVs) and store them in the DB
+deleteJobApplicationById
+light/dark theme
+make job application list PAGED
+
+C:...
+W:...
+
+
+8- Limitations (what problems to expect ~ deal with ~ accept ~ improve for later version)
+
+limitations need more deep study,
+but for example:
+in this version of the system,
+authentication is a limitation since anyone can log in using hardcoded values (u:admin, p:1234)
+
+also, the user needs to remember and keep creating new job application records manually,
+so this is not fully automated
+
+the solution mainly adopts the English language right now
+
+this also
+
+
+9- High level and Low level design : specify the user/system interactions
+		===> here we set the ERD, database schema, dtos, endpoints of the api,...(very open to change)
+		
+the user opens the web application,
+at login, he is required to enter username and password (hardcoded since it's a mock	auth)
+dto for the frontend app (username,password)
+system responds by allowing the user to navigate to the dashboard page (no real authResponse from api here since it's mock too)
+same applies for logout
+
+now for the real api (frontend backend communication)
+user will have mainly 3 interactions with the api 
+for creating a jobApplication record, user enters:
+applicant name,applicant email,job title (system generates the id(auto incremental)
+										,and dateOfCreation as now,and applicationStatus as new)
+
+for updating , user selects the record from the list of applications and updates status
+from new to inProgress or from inProgress to Done (api requires the id only for the update,since status will be auto derived)
+
+
+the dashboard page also shows a table of the list of registered jobApplications:
+the table shows these record info:
+id,name,email,job title,date of creation,status
+
+Note:
+in our context:
+new is any applicant record that has been shortlisted by AliMA Corporation (no contact from the company yet),
+the user enters manually each application he tends to follow up with
+
+inProgress is any applicant record that has been contacted by the HR team so the company must follow the process with
+this candidate
+
+Done is any applicant record that has ended this process whether he was hired,or been rejected
+
+so in other words,
+new jobApplications are the total candidates that applied and were shortlisted by HR side (no contact yet)
+inProgress jobApplications are the total shortlisted candidates that have been contacted by HR
+Done jobApplications are the total candidates that have been hired or rejected after being contacted by HR
+
+
+
+"JobApplication":
+    
+"Id": "int, PK, auto increment",
+"Name": "string",
+"Email": "string",
+"JobTitle": "string",
+"Status": "int",
+"CreatedAt": "datetime"
+
+request dtos for the api:
+createDTO
+{
+"Name": "string",
+"Email": "string",
+"JobTitle": "string",
+}
+
+updateDTO
+{
+"id":int
+}
+
+response dtos for the api:
+
+jobApplicationListDTO : 
+will be a list of this record
+{
+"Id": "int,
+"Name": "string",
+"Email": "string",
+"JobTitle": "string",
+"Status": "int",
+"CreatedAt": "datetime"
+}
+
+endpoints : 
+
+GET /api/dashboard
+Response: JobApplicationList
+ 	
+POST /api/dashboard
+Body: CreateJobApplicationDto
+Response: JobApplicationRecord	
+
+PUT /api/dashboard
+Body: UpdateJobApplicationDto
+Response: JobApplicationRecord

@@ -12,3 +12,4 @@ and totally avoid ghosting candidates they had contacted (shortlisted candidates
 
 For that reason, the AliMA CEO reached me (ALi Mortada Anani - fullstack developer) to create a solution for this problem
 which is basically an internal dashboard web application that manages candidates applying for jobs at AliMA Corporation.
+
