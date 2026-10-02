@@ -44,3 +44,6 @@ Apply design patterns that handle and deal with concurrency issues and scenarios
 
 In case slow performance is caused by a huge number of users, 
 we can make the system distributed partially; deploying some features across many servers so they handle many users.
+
+In addition, we can adopt the Stored Procedure approach which is somewhat an old technique, in order to make database queries
+as fast as possible.
