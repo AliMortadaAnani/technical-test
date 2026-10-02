@@ -8,7 +8,6 @@ import {
 } from "../types/applications.types";
 
 export default function JobApplicationTable() {
-  // 1. Fetch the application list and query states
   const {
     data: applications,
     isLoading,
@@ -16,10 +15,8 @@ export default function JobApplicationTable() {
     error,
   } = useJobApplicationList();
 
-  // 2. Get the update mutation function and loading status
   const { updateJobApplication, isUpdating } = useJobApplicationMutations();
 
-  // 3. Helper to trigger status update using UpdateJobApplicationRequestDTO
   const handleUpdate = (payload: UpdateJobApplicationRequestDTO) => {
     updateJobApplication(payload);
   };
@@ -38,7 +35,6 @@ export default function JobApplicationTable() {
     }
   };
 
-  // Loading & Error states
   if (isLoading) {
     return (
       <div className="p-8 text-center text-sm text-gray-500">
@@ -139,6 +135,7 @@ export default function JobApplicationTable() {
                 </tr>
               ))
             ) : (
+              // if there are no applications in the list
               <tr>
                 <td colSpan={5} className="px-6 py-8 text-center text-gray-400">
                   No job applications found.

@@ -14,10 +14,8 @@ export default function PublicRoute() {
     <>
       <div className="min-h-screen flex flex-col bg-gray-300">
         <Navbar
-          link1Label="Login"
-          link1To="/login"
-          link2Label="About"
-          link2To="/about"
+          linkLabels={["Login", "About"]}
+          linkTo={["/login", "/about"]}
           withLogoutButton={false}
         />
         <main className="flex-1 max-w-7xl w-full mx-auto p-6">

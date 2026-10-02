@@ -2,18 +2,15 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 
 interface NavbarProps {
-  link1Label: string;
-  link1To: string;
-  link2Label: string;
-  link2To: string;
+  linkLabels: string[];
+  linkTo: string[];
+
   withLogoutButton?: boolean;
 }
 
 export default function Navbar({
-  link1Label,
-  link1To,
-  link2Label,
-  link2To,
+  linkLabels,
+  linkTo,
   withLogoutButton = false,
 }: NavbarProps) {
   const getLinkStyle = ({ isActive }: { isActive: boolean }): string => {
@@ -29,13 +26,11 @@ export default function Navbar({
     <header className="w-full bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center gap-6">
-          <NavLink to={link1To} className={getLinkStyle}>
-            {link1Label}
-          </NavLink>
-
-          <NavLink to={link2To} className={getLinkStyle}>
-            {link2Label}
-          </NavLink>
+          {linkLabels.map((label, index) => (
+            <NavLink key={index} to={linkTo[index]} className={getLinkStyle}>
+              {label}
+            </NavLink>
+          ))}
           {withLogoutButton && (
             <div className="ml-auto">
               <LogoutButton />

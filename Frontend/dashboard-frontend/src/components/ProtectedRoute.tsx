@@ -13,10 +13,8 @@ export default function ProtectedRoute() {
     <>
       <div className="min-h-screen flex flex-col bg-gray-300">
         <Navbar
-          link1Label="Dashboard"
-          link1To="/dashboard"
-          link2Label="Create Job Application"
-          link2To="/new-job-application"
+          linkLabels={["Dashboard", "Create Job Application"]}
+          linkTo={["/dashboard", "/new-job-application"]}
           withLogoutButton={true}
         />
         <main className="flex-1 max-w-7xl w-full mx-auto p-6">

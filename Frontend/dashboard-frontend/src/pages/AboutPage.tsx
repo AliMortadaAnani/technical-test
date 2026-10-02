@@ -16,7 +16,7 @@ export default function AboutPage() {
       {/* Short Description Paragraph */}
       <p className="text-gray-600 leading-relaxed text-sm">
         This internal dashboard app is designed to help AliMA Corporation
-        employees manage their job applications efficiently. It provides a
+        employees manage candidates' job applications efficiently. It provides a
         centralized platform to track and update job applications, ensuring that
         the company is maintaining a healthy communication with shortlisted
         candidates.

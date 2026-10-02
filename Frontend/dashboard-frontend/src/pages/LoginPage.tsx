@@ -29,10 +29,10 @@ export default function LoginPage() {
     <div className="flex items-center justify-center bg-gray-300 px-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-sm border border-gray-200 p-8">
         <div className="mb-6 text-center">
-          <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Welcome!</h1>
           <p className="text-sm text-gray-500 mt-1">
             Please enter your details to sign in <br />
-            (username: useradmin, password: 1234)
+            (username: admin, password: 1234)
           </p>
         </div>
 
