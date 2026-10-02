@@ -1,17 +1,44 @@
-latency between frontend and backend server
-backend is loading a bunch of data with no pagination
-react is rendering more that it need
-npm packages are heavy and take time
-api outdated could be cause by uncompleted request(cancellation token)
-and at some cases concurreny issues if both users updated a record same time => undefined data flow
-a very big number of users => server is unable to handle that big number of users
-tanstack problems (or useEffect)
-no indices for db
-uncleaned code like set up timers, memory leakage unhandled on backend...
+Answer for Task2:
 
+This system inconsistency and slow performance could be caused by many factors.
 
-of course i check logs , query exec time,
-server deployed health,
-trace requests in all levels
-make it microservices
-check profiler for react
+Slow performance : 
+The system database queries are retrieving a huge number of records or take a long time to execute,
+which slows the response, especially if an ORM like EF Core is tracking all these records unnecessary(a critical development error).
+Also, a large number of concurrent users will exhaust the server resources, which leads to requests waiting in queues.
+
+Inconsistency
+The frontend cache of the server state (like the TanStack Query cache) is not handling all mutations properly,
+which leads to the cache still being considered fresh while the data is actually stale;
+then the frontend does not refetch new data, so it stays outdated.
+Also, some incomplete requests could leave the API server in an undefined state.
+For example, if the network is cut off after the request is already sent, 
+then another request is fired, and the server needs to deal with two or more concurrent requests. 
+The same happens if many users access the same data on the server.
+
+How to debug
+First, we need to check the logs (on the API server and the frontend server).
+Database queries (the raw SQL executed) on the API server, along with execution time, are very informative data 
+for such cases. 
+We also need to check the profiler on the React side to discover how much time each component consumes to load and re-render.
+
+How to fix it
+We need to trace the request on both the frontend and backend, 
+and watch carefully how the request/response walkthrough is established.
+We need to make GET requests that fetch lists paginated (so we fetch one page of 15 records instead of millions), 
+and guarantee that in EF Core, for example, by ensuring lazy loading, 
+so we query only the required records from the database. 
+Sorting and paging should happen on the database side, not on the API server side.
+Make GetRecords use AsNoTracking if no change is intended with them. 
+Similarly, we need to apply lazy loading for React pages (load on demand).
+Make the cache on both the backend and frontend responsive to any event that requires invalidating the cached data.
+
+How to redesign it for scale
+We need to write optimized queries from the beginning, 
+with indices (to avoid slow queries on the most-fetched records), 
+a normalized database, and clean out unneeded packages.
+
+Make the API async, so I/O time is used by other cpu processes.
+
+In case slow performance is caused by a huge number of users, 
+we can make the system distributed partially; deploying some features across many servers so they handle many users.

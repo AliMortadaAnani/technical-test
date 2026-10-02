@@ -33,7 +33,7 @@ namespace Dashboard.API.Infrastructure.Repositories
         {
             _logger.LogInformation("Retrieving list of job applications");
             return await _dbContext.JobApplications
-               .AsNoTracking()
+               .AsNoTracking()//very important !!!
                .OrderBy(j => j.Status)
                .ThenBy(c => c.CreatedAt)
                .ToListAsync();
