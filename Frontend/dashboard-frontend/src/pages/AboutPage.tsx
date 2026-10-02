@@ -8,15 +8,18 @@ export default function AboutPage() {
 
       {/* Main Heading */}
       <h1 className="text-2xl font-bold text-gray-900 mb-3">
-        Job Application Portal
+        AliMA Corporation
       </h1>
-
+      <h2 className="text-lg font-semibold text-gray-800 mb-4">
+        Job Application Management Dashboard
+      </h2>
       {/* Short Description Paragraph */}
       <p className="text-gray-600 leading-relaxed text-sm">
-        Our recruitment platform simplifies the hiring process by helping teams
-        track applicants seamlessly from submission to final decision. We
-        provide a clean, reliable, and transparent workflow to make candidate
-        management faster and more efficient.
+        This internal dashboard app is designed to help AliMA Corporation
+        employees manage their job applications efficiently. It provides a
+        centralized platform to track and update job applications, ensuring that
+        the company is maintaining a healthy communication with shortlisted
+        candidates.
       </p>
     </div>
   );

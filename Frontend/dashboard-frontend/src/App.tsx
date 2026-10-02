@@ -12,7 +12,7 @@ import DashboardPage from "./pages/DashboardPage";
 import CreateJobApplicationPage from "./pages/CreateJobApplicationPage";
 import AboutPage from "./pages/AboutPage";
 
-import { AuthProvider } from "./contexts/authContext";
+import { AuthProvider } from "./contexts/authContext"; //mock auth
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,8 +52,7 @@ export function App() {
         <Toaster
           position="top-right"
           toastOptions={{
-            className:
-              "text-sm font-medium rounded-lg shadow-md border border-gray-100 px-3 py-2",
+            className: "text-sm font-medium",
           }}
         />
       </AuthProvider>

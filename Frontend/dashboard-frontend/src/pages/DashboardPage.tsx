@@ -29,8 +29,8 @@ export default function JobApplicationTable() {
     switch (status) {
       case "New":
         return "bg-blue-50 text-blue-700 border-blue-200";
-      case "In Progress":
-        return "bg-amber-50 text-amber-700 border-amber-200";
+      case "InProgress":
+        return "bg-amber-50 text-amber-700 border-orange-200";
       case "Done":
         return "bg-green-50 text-green-700 border-green-200";
       default:
@@ -49,7 +49,7 @@ export default function JobApplicationTable() {
 
   if (isError) {
     return (
-      <div className="p-8 text-center text-sm text-red-500">
+      <div className="p-8 text-center text-sm text-red-800">
         Error loading applications: {error?.message || "Something went wrong"}
       </div>
     );
@@ -113,7 +113,7 @@ export default function JobApplicationTable() {
                         type="button"
                         disabled={isUpdating}
                         onClick={() => handleUpdate({ id: app.id })}
-                        className="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 text-white text-xs font-medium rounded-lg transition-colors duration-150"
+                        className="px-3 py-1.5 bg-amber-600 hover:bg-amber-800 disabled:bg-amber-300 text-taupe-100 border border-amber-200   text-xs font-medium rounded-lg transition-colors duration-150"
                       >
                         Start Progress
                       </button>

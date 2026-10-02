@@ -12,7 +12,7 @@ export default function PublicRoute() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-gray-50">
+      <div className="min-h-screen flex flex-col bg-gray-300">
         <Navbar
           link1Label="Login"
           link1To="/login"

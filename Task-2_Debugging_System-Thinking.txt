@@ -1,0 +1,17 @@
+latency between frontend and backend server
+backend is loading a bunch of data with no pagination
+react is rendering more that it need
+npm packages are heavy and take time
+api outdated could be cause by uncompleted request(cancellation token)
+and at some cases concurreny issues if both users updated a record same time => undefined data flow
+a very big number of users => server is unable to handle that big number of users
+tanstack problems (or useEffect)
+no indices for db
+uncleaned code like set up timers, memory leakage unhandled on backend...
+
+
+of course i check logs , query exec time,
+server deployed health,
+trace requests in all levels
+make it microservices
+check profiler for react
