@@ -4,7 +4,7 @@ This system inconsistency and slow performance could be caused by many factors.
 
 Slow performance : 
 The system database queries are retrieving a huge number of records or take a long time to execute,
-which slows the response, especially if an ORM like EF Core is tracking all these records unnecessary(a critical development error).
+which slows the response, especially if an ORM like EF Core is tracking all these records unnecessarily(a critical development error).
 Also, a large number of concurrent users will exhaust the server resources, which leads to requests waiting in queues.
 
 Inconsistency
@@ -39,6 +39,8 @@ with indices (to avoid slow queries on the most-fetched records),
 a normalized database, and clean out unneeded packages.
 
 Make the API async, so I/O time is used by other cpu processes.
+
+Apply design patterns that handle and deal with concurrency issues and scenarios.
 
 In case slow performance is caused by a huge number of users, 
 we can make the system distributed partially; deploying some features across many servers so they handle many users.
